@@ -1,38 +1,401 @@
-.App {
-  text-align: center;
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #fff; /* White background */
+  border-radius: 6px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Handle (thumb) of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #415f41; /* Green thumb color */
+  border-radius: 6px;
+}
+
+/* When the user hovers over the scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: #008000; /* Darker green on hover */
+}
+
+nav {
+  background-color: rgb(32, 197, 54);
+  font-family: "Lucida Sans Unicode";
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#navLinks {
+  display: flex;
+  justify-content: space-evenly;
+}
+#navLinks li {
+  margin: 0 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  transition: color 0.5s ease; 
+}
+nav a:hover{
+  color: rgb(212, 212, 212);
+  transition: color 0.5s ease; 
+  }
+#logo {
+  height: 15dvh;
+}
+@media (max-width: 600px) {
+  .recipeContainer{
+    display:flex;
+    flex-direction: column!important;
+  }
+  #navLinks {
+    flex-direction: column;
+    animation: fadeEffect 3s;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  #logo {
+    height: 15dvh;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes fadeEffect {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.recipeWidget {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+
+.recipeWidget:hover {
+  transform: scale(1.01); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.recipeContent {
+  width: 100%;
+  max-width: 300px; 
+}
+
+
+.recipeImage {
+  max-width: 100%;
+  height: auto;
+}
+
+
+h3 {
+  margin-top: 10px;
+}
+
+.recipeContainer{
+  margin-top: 1em;
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#yourCupboard {
+  text-align: center;
+  background-color: #6EC961; 
+  padding: 20px;
+}
+
+.cupboard {
+  font-size: 36px;
+  color: #fff; 
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+#ingredientBox {
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-@keyframes App-logo-spin {
+input[type="submit"] {
+  background-color: #3B8F41; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #1F6224; 
+}
+#ingredientList{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.ingredientListItem {
+  font-size: 18px;
+  color: #333; 
+  background-color: #fff; 
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  width:fit-content
+}
+
+.container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9); 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+h1 {
+  font-size: 36px;
+  color: #6EC961; 
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.container {
+  animation: fadeIn 0.5s ease;
+  margin: 0 2em;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+      opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+      opacity: 1;
   }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* Set minimum height to 100% of viewport height */
+}
+
+a{
+  color:#3B8F41;
+  text-decoration: none;
+}
+
+.recipePage {
+  text-align: center;
+  background-color: #fff; /* White background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 80dvw;
+  margin: 2em auto;
+}
+
+.recipeTitle {
+  font-size: 36px;
+  color: #6EC961; /* Green text color */
+  margin-bottom: 10px;
+}
+
+.recipePage img {
+  max-width: 60dvw;
+  margin-bottom: 10px;
+}
+
+.recipeCredit {
+  font-size: 14px;
+  color: #333; /* Dark text color */
+}
+
+.recipeSummary {
+  font-size: 16px;
+  color: #333;
+  margin: 20px 0;
+}
+
+.recipeSectionTitle {
+  font-size: 24px;
+  color: #6EC961;
+  margin: 20px 0;
+}
+
+.recipeIngredient {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.recipeStep {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+.instructionsMap{
+  text-align: start;
+}
+
+.recipePage h3{
+  margin-top: 2em;
+  color:#3B8F41
+}
+
+/* Dropdown container */
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+}
+
+/* Dropdown button */
+.dropdown-toggle {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Arrow icon */
+.arrow-icon {
+  margin-left: 5px;
+  transition: transform 0.2s;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  display: none;
+  z-index: 1;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+/* Divider between filter and sort options */
+.dropdown-divider {
+  border-top: 1px solid #ccc;
+  margin: 5px 0;
+}
+
+/* Show dropdown menu when button is hovered */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Highlight on hover */
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu small{
+  cursor: pointer;
+}
+
+.selected{
+  background-color: #1F6224;
+}
+
+#recipeSearch{
+  display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+#recipeSearchPage {
+  background-color: #6EC961;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.cupboard {
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+input[type="search"]{
+  background-color: white;
+  color: green;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid green;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+select {
+  background-color: white;
+  color: green;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid green;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+#recipeSearch h3{
+  margin-top:0.5em;
 }
