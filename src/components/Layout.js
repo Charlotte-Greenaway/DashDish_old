@@ -11,10 +11,7 @@ const Layout =  () => {
           </li>
           <div id="navLinks">
             <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/cupboard">Cupboard</Link>
+              <Link to="/">Cupboard</Link>
             </li>
             <li>
               <Link to="/recipesearch">Recipe Search</Link>

@@ -1,9 +1,10 @@
 import axios from "axios";
+import Cupboard from './Cupboard';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-const apiKey = "cf66ba73db1148cd87cad9e1fb1bb933"
+const apiKey = "4d8c7b70cb994ecb8e9d31c55d7d894a"
 
-const Home = ({ ingredients }) => {
+const Home = ({ ingredients, setIngredients }) => {
   const [rec, setRecs] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState([]);
   const [originalData, setOriginalData] = useState([]);
@@ -98,13 +99,14 @@ const Home = ({ ingredients }) => {
 
   return (
     <>
-      {rec.length === 1 &&
+    <Cupboard ingredients={ingredients} setIngredients={setIngredients}/>
+       {rec.length === 1 &&
       rec[0] === "Please add ingredients to get your recipes!" ? (
         <div className="home">
           <div className="container">
             <h1>Welcome to Your Kitchen!</h1>
             <h3>
-              Please <Link to="/cupboard">add ingredients </Link> to get our
+              Please add ingredients to get our
               recipes.
             </h3>
           </div>
@@ -116,22 +118,28 @@ const Home = ({ ingredients }) => {
               Filter <span className="arrow-icon">&#9660;</span>
             </button>
             <div className="dropdown-menu" id="dropdownMenu">
-              <small class={appliedFilters.includes("vegetarian")?"selected":null} onClick={() => applyFilter("vegetarian")}>
+              <small className={appliedFilters.includes("vegetarian")?"selected":null} onClick={() => applyFilter("vegetarian")}>
                 Vegetarian
               </small>
               <br />
-              <small class={appliedFilters.includes("vegan")?"selected":null} onClick={() => applyFilter("vegan")}>Vegan</small>
+              <small className={appliedFilters.includes("vegan")?"selected":null} onClick={() => applyFilter("vegan")}>Vegan</small>
               <br />
               <div className="dropdown-divider"></div>
-              <small class={appliedFilters.includes("most")?"selected":null}onClick={() => applyFilter("most")}>
+              <small className={appliedFilters.includes("most")?"selected":null}onClick={() => applyFilter("most")}>
                 Most matched Ingredients
               </small>
               <br />
-              <small class={appliedFilters.includes("least")?"selected":null} onClick={() => applyFilter("least")}>
+              <small className={appliedFilters.includes("least")?"selected":null} onClick={() => applyFilter("least")}>
                 Least matched Ingredients
               </small>
             </div>
           </div>
+          {
+            appliedFilters.map((item, index)=>
+              <p className="filterBubble" key={item}>{item}<button className="deleteIngredient" onClick={() => applyFilter(item)} key={index}>X</button></p>
+              )
+          }
+
           <div className="recipeContainer">
             {rec.map((recipe) =>
               recipe === false ? (
@@ -140,22 +148,19 @@ const Home = ({ ingredients }) => {
                   Service is currently down. Please try again later.
                 </div>
               ) : (
+                <>
                 <Link
                   key={recipe.id}
                   to="/recipepage"
                   state={{ recipe: recipe }}
+                  className="recipeLink"
                 >
-                  <div className="recipeWidget" key={recipe.id}>
-                    <div className="recipeContent">
-                      <img
-                        src={recipe.image}
-                        alt={recipe.title}
-                        className="recipeImage"
-                      />
-                      <h3>{recipe.title}</h3>
-                    </div>
+                  <div className="recipeWidget" key={recipe.id} style={{backgroundImage:"url("+recipe.image+")"}}>
                   </div>
+                  <h3 key= {recipe.id+1}>{recipe.title}</h3>
+                  
                 </Link>
+                </>
               )
             )}
           </div>

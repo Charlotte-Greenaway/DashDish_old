@@ -1,7 +1,7 @@
 import { useRef,useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-const apiKey = "cf66ba73db1148cd87cad9e1fb1bb933";
+const apiKey = "43a90d152cab4eb28299a30e9dec9cd7";
 
 
 const RecipeSearch = () => {
