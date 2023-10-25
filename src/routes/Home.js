@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-const apiKey = [insert api key]
+const apiKey = "cf66ba73db1148cd87cad9e1fb1bb933"
 
 const Home = ({ ingredients }) => {
   const [rec, setRecs] = useState([]);
