@@ -91,10 +91,26 @@ nav a:hover{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   background-color: #fff;
-  height:225px;
   background-position: center;
 }
 
+@media (max-width: 1250px){
+  .recipeWidget{
+    height:225px!important;
+  }
+  .recipeLink{
+    width:300px !important;
+  }
+}
+
+@media (min-width:1251px){
+  .recipeWidget{
+    height:18dvw;
+  }
+  .recipeLink{
+    width:23dvw;
+  }
+}
 
 .recipeWidget:hover {
   transform: scale(1.01); 
@@ -102,7 +118,6 @@ nav a:hover{
 }
 
 .recipeLink{
-  width:300px;
   text-align:center;
   margin-right: auto;
     margin-left: auto;
