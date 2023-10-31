@@ -10,25 +10,40 @@ const RecipePage = () => {
   } 
   const { recipe } = state;
   return (
-    <div class="recipePage">
-      <h1>{recipe.title}</h1>
-      <img alt={recipe.title} src={recipe.image} />
-      <br />
-      <small>Credit: {recipe.creditsText}</small>
-      <h3>Summary</h3>
+    <div className="recipePage">
+      <div id="headerRecipe">
+        <div className="firstRec">
+        <h1>{recipe.title}</h1>
+        
       <p
         dangerouslySetInnerHTML={{
           __html: recipe.summary.split(". ").splice(0, 3).join(".<br/>"),
         }}
       ></p>
-      <h3>Your Ingredients</h3>
-      {recipe.usedIngredients.map((ingredient) => (
-        <p key={ingredient}>{ingredient.original}</p>
-      ))}
+      <hr/>
+      <small>Credit: {recipe.creditsText}</small>
+        </div>
+
+        <img alt={recipe.title} src={recipe.image}  id="recipeImage"/>
+      </div>
+      
+      <br />
+      <div className = "ingredientInfo">
+        <div className="yourIngs">
+            <h3>Your Ingredients</h3>
+          {recipe.usedIngredients.map((ingredient) => (
+            <p key={ingredient}>{ingredient.original}</p>
+          ))}
+        </div>
+      <div className="missingIngs">
       <h3>Missing Ingredients</h3>
       {recipe.missedIngredients.map((ingredient) => (
         <p key={ingredient}>{ingredient.original}</p>
       ))}
+      </div>
+      
+      </div>
+      
       <h3 className="instructionsMap">Instructions</h3>
       {recipe.analyzedInstructions[0].steps.map((step) => (
         <p className="instructionsMap" key={step.number}>
