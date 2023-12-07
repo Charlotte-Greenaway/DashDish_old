@@ -1,6 +1,6 @@
 # Your Kitchen App
 
-##Please be aware that this is a beta version of the app, this is currently being rebuilt using NextJS 
+## Please be aware that this is a beta version of the app, this is currently being rebuilt using NextJS 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
