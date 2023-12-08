@@ -1,7 +1,7 @@
 # Your Kitchen App
 
 ## Please be aware that this is a beta version of the app, this is currently being rebuilt using NextJS 
-<a href="https://timely-daifuku-cb8c95.netlify.app/">View Demo</a>
+[view demo](https://timely-daifuku-cb8c95.netlify.app/)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 A simple recipe project that helps you discover delightful meals using ingredients you already have in your pantry! Your Kitchen is built using the Spoonacular API, a powerful tool for accessing a vast database of recipes. Before you get started, you'll need to obtain your own Spoonacular API key.
